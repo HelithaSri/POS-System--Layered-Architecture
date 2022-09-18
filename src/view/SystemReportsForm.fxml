@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="manageOrderAnchorPane" prefHeight="1018.0" prefWidth="1840.0" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SystemReportsFormController">
+   <children>
+      <PieChart fx:id="pieChart" labelLineLength="25.0" layoutX="25.0" layoutY="30.0" prefHeight="480.0" prefWidth="480.0" title="Top 5 Most Selling Items - Today" />
+      <PieChart fx:id="pieChart2" labelLineLength="25.0" layoutX="530.0" layoutY="30.0" prefHeight="480.0" prefWidth="480.0" title="Top 10 Most Selling Items - Month" />
+      <PieChart fx:id="pieChart3" labelLineLength="25.0" layoutX="1038.0" layoutY="30.0" prefHeight="480.0" prefWidth="772.0" title="Top 20 Most Selling Items - Year" />
+      <Separator layoutX="506.0" layoutY="14.0" orientation="VERTICAL" prefHeight="532.0" prefWidth="26.0" />
+      <Separator layoutX="1012.0" layoutY="13.0" orientation="VERTICAL" prefHeight="532.0" prefWidth="26.0" />
+      <Separator layoutX="24.0" layoutY="549.0" prefHeight="32.0" prefWidth="1790.0" />
+      <Label alignment="CENTER" layoutY="582.0" prefHeight="50.0" prefWidth="1840.0" text="Financial Reports" textAlignment="CENTER" underline="true">
+         <font>
+            <Font name="Roboto Black" size="35.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btnDailyReport" buttonType="RAISED" layoutX="577.0" layoutY="659.0" onMouseClicked="#dailyReport" prefHeight="75.0" prefWidth="200.0" styleClass="btn-add-to-cart" text="Daily" textAlignment="CENTER" />
+      <JFXButton fx:id="btnMonthlyReport" buttonType="RAISED" layoutX="818.0" layoutY="659.0" onMouseClicked="#monthlyReport" prefHeight="75.0" prefWidth="200.0" styleClass="btn-add-to-cart" text="Monthly" textAlignment="CENTER" />
+      <JFXButton fx:id="btnAnnuallyReport" buttonType="RAISED" layoutX="1058.0" layoutY="659.0" onMouseClicked="#annuallyReport" prefHeight="75.0" prefWidth="200.0" styleClass="btn-add-to-cart" text="Annually" />
+      <Separator layoutX="24.0" layoutY="783.0" prefHeight="32.0" prefWidth="1790.0" />
+      <JFXDatePicker fx:id="dateStartDate" layoutX="493.0" layoutY="882.0" prefHeight="50.0" prefWidth="290.0" promptText="Start Date" styleClass="date-field" />
+      <JFXDatePicker fx:id="dateEndDate" layoutX="834.0" layoutY="882.0" prefHeight="50.0" prefWidth="290.0" promptText="End Date" styleClass="date-field" />
+      <JFXButton fx:id="btnGetReport" buttonType="RAISED" layoutX="1180.0" layoutY="869.0" onMouseClicked="#customReport" prefHeight="75.0" prefWidth="274.0" styleClass="btn-add-to-cart" text="Get Custom Report" />
+   </children>
+</AnchorPane>

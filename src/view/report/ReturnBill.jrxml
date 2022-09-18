@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Bill" pageWidth="311" pageHeight="728" columnWidth="301" leftMargin="5" rightMargin="5" topMargin="5" bottomMargin="5" uuid="117f2586-54a9-4949-ad91-52da768ffdc2">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="OrderId" class="java.lang.String"/>
+	<parameter name="SubTotal" class="java.lang.String"/>
+	<parameter name="customerID" class="java.lang.String"/>
+	<parameter name="customerName" class="java.lang.String"/>
+	<parameter name="itemCode" class="java.lang.String"/>
+	<parameter name="Qty" class="java.lang.String"/>
+	<parameter name="unitPrice" class="java.lang.String"/>
+	<parameter name="Discount" class="java.lang.String"/>
+	<parameter name="Total" class="java.lang.String"/>
+	<parameter name="description" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="itemCode" class="java.lang.String"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="qty" class="java.lang.Integer"/>
+	<field name="unitPrice" class="java.lang.Double"/>
+	<field name="discount" class="java.lang.Integer"/>
+	<field name="total" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="72" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="301" height="22" uuid="cb7fda06-06ab-4d9c-87ca-8cad8e9c84c2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="17" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Super Market]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="22" width="301" height="20" uuid="7ccaf9f8-96bb-49f4-85cc-b9f2ce55e1c2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="10"/>
+				</textElement>
+				<text><![CDATA[Kandy Road,Nawalapitiya]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="0" y="42" width="301" height="15" uuid="fea0ad47-f2ce-407e-a47e-944b0e8ce54f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm">
+				<reportElement x="0" y="57" width="301" height="15" uuid="8d9b7364-f798-4036-872f-f38d0c5dab15">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="4" width="80" height="17" uuid="7c26245f-91ee-407b-9bad-82443c908e3f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Roboto Medium" size="12"/>
+				</textElement>
+				<text><![CDATA[ORDER ID  :  ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="90" y="4" width="100" height="17" uuid="af803368-dc4a-49b1-9e9e-1ac8ca7c02cc"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Roboto Medium"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{OrderId}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="23" width="301" height="20" uuid="c2290056-ca60-45cc-b00b-9b58d6dc3df1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto Medium" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RETURN BILL]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="44" width="301" height="1" uuid="6b8c6f06-dcfc-4937-9508-ce0e43c6d7e8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="1.75"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="50" height="30" uuid="0dc24d04-e816-42d8-b40d-a2319971c909">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bebd4479-a018-4001-9484-36f4304b6523"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto Medium" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Item Code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="0" width="29" height="30" uuid="5e2eef6e-acbe-4511-ae20-32a214bc730b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c327c4a3-f89e-4c85-b204-d96b33297635"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto Medium" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qty]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="0" width="58" height="30" uuid="92cfb3f6-7817-474b-9d97-016e0b0373cf">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="241e7b5b-f71d-4e5b-862b-aca193839685"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto Medium" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Unit Price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="198" y="0" width="45" height="30" uuid="37e16fc6-dbbd-4b66-8488-4a2e1ea6045d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="114e14e9-1929-447b-835f-88e86286097c"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto Medium" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Discount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="243" y="0" width="58" height="30" uuid="ec2547c4-3f86-4bc1-a18f-26c9c57ef4f8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="712ba713-6aa9-45a8-ba30-b7e6880063e3"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto Medium" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="79" y="0" width="61" height="30" uuid="220fdff5-606e-4b91-8df1-2f464f57908e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c327c4a3-f89e-4c85-b204-d96b33297635"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto Medium" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="50" height="30" uuid="3ec2d142-c0b5-44cb-89eb-5344e4058061"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{itemCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="0" width="29" height="30" uuid="5de7ec31-6514-408a-9d13-5695fa5739f2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="0" width="58" height="30" uuid="e7b717f7-dca3-46c4-887f-af5e3698f23f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{unitPrice}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="198" y="0" width="45" height="30" uuid="dfdc8a08-c07e-4154-89bb-6051ca0dd536"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Discount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="243" y="0" width="58" height="30" uuid="7e491510-4586-46b6-9038-0cad71e3e8d6"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Roboto"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="79" y="0" width="61" height="30" uuid="c5e91e84-1ad2-4656-aa37-104ca47bd5b7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{description}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="90" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="41" width="301" height="21" uuid="7d77eb5b-c555-46d7-a14d-ea4e4b42fcd3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="14"/>
+				</textElement>
+				<text><![CDATA[Thank You Come Again]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="70" width="301" height="10" uuid="9604d3fa-aa66-42b4-b1fb-12ec39c2e20b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="8"/>
+				</textElement>
+				<text><![CDATA[System By Helitha Sri Tel : 0767059199]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="8" width="130" height="22" uuid="e54fd4ce-9fc7-4303-a6c7-423ce4b38e62"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Roboto Medium" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RETURN TOTAL : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="184" y="8" width="100" height="22" uuid="aafd71bf-3a47-452d-a8be-b9a7b73cdc8a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Roboto Medium" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Total}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="1" width="301" height="1" uuid="5ae4ee5a-3e2d-4ed1-90c7-33a8fbcbf462">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="39" width="301" height="1" uuid="7f13b7c8-90c4-4739-aa07-9b6abb7fdd6e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="63" width="301" height="1" uuid="43b7261d-ad87-4f41-97c7-19469ed7466e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+		</band>
+	</summary>
+</jasperReport>

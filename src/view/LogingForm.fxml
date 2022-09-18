@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="logingPane" prefHeight="586.0" prefWidth="853.0" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LogingFormController">
+   <children>
+      <ImageView fitHeight="586.0" fitWidth="853.0" pickOnBounds="true">
+         <image>
+            <Image url="@../assets/blue-light-gradient-soft-background.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="241.0" layoutY="109.0" prefHeight="368.0" prefWidth="372.0" styleClass="first-Pane">
+         <children>
+            <AnchorPane prefHeight="80.0" prefWidth="372.0" styleClass="half-pane">
+               <children>
+                  <Label layoutX="50.0" layoutY="32.0" styleClass="pos-Lable" text="Wellcome Back" />
+               </children>
+            </AnchorPane>
+            <Label layoutX="121.0" layoutY="56.0" text="Login Account" visible="false">
+               <font>
+                  <Font name="Roboto Bold" size="20.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtUserName" labelFloat="true" layoutX="50.0" layoutY="119.0" prefHeight="36.0" prefWidth="273.0" promptText="User Name" />
+            <JFXPasswordField fx:id="txtUserPassword" labelFloat="true" layoutX="50.0" layoutY="200.0" prefHeight="36.0" prefWidth="273.0" promptText="Password" />
+            <JFXButton buttonType="RAISED" layoutX="77.0" layoutY="280.0" onAction="#logingBtnOnAction" prefHeight="36.0" prefWidth="220.0" styleClass="loging-btn" text="Loging" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

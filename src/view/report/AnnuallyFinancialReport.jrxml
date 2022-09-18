@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AnnuallyFinancialReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a01f39ab-0e91-41da-abc4-aee83319facb">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="IjsePos"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="252"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="740"/>
+	<subDataset name="Dataset1" uuid="cefdb4e0-4e63-4fbd-b0e6-f754658bf1f0">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="IjsePos"/>
+		<queryString language="SQL">
+			<![CDATA[SELECT o.orderDate,i.ItemCode,i.Description,SUM(od.OrderQty) AS Qty, SUM(round(((100-od.Discount)*(i.UnitPrice*od.OrderQty))/100,2)) AS Total FROM orderdetail od INNER JOIN item i ON od.ItemCode=i.ItemCode INNER JOIN `order` o ON od.OrderId=o.orderId WHERE o.orderDate=CURDATE() GROUP BY i.ItemCode;]]>
+		</queryString>
+		<field name="orderDate" class="java.sql.Date">
+			<property name="com.jaspersoft.studio.field.name" value="orderDate"/>
+			<property name="com.jaspersoft.studio.field.label" value="orderDate"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="order"/>
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="ItemCode" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="ItemCode"/>
+			<property name="com.jaspersoft.studio.field.label" value="ItemCode"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="item"/>
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="Description" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="Description"/>
+			<property name="com.jaspersoft.studio.field.label" value="Description"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="item"/>
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="Qty" class="java.math.BigDecimal">
+			<property name="com.jaspersoft.studio.field.name" value="Qty"/>
+			<property name="com.jaspersoft.studio.field.label" value="Qty"/>
+		</field>
+		<field name="Total" class="java.math.BigDecimal">
+			<property name="com.jaspersoft.studio.field.name" value="Total"/>
+			<property name="com.jaspersoft.studio.field.label" value="Total"/>
+		</field>
+		<group name="orderDate">
+			<groupExpression><![CDATA[$F{orderDate}]]></groupExpression>
+		</group>
+		<group name="ItemCode">
+			<groupExpression><![CDATA[$F{ItemCode}]]></groupExpression>
+		</group>
+		<group name="Description">
+			<groupExpression><![CDATA[$F{Description}]]></groupExpression>
+		</group>
+		<group name="Qty">
+			<groupExpression><![CDATA[$F{Qty}]]></groupExpression>
+		</group>
+		<group name="Total">
+			<groupExpression><![CDATA[$F{Total}]]></groupExpression>
+		</group>
+	</subDataset>
+	<queryString>
+		<![CDATA[SELECT i.ItemCode,i.Description,SUM(od.OrderQty) AS Qty, SUM(round(((100-od.Discount)*(i.UnitPrice*od.OrderQty))/100,2)) AS Total,o.orderDate FROM orderdetail od INNER JOIN item i ON od.ItemCode=i.ItemCode INNER JOIN `order` o ON od.OrderId=o.orderId WHERE YEAR(o.orderDate)=YEAR(CURDATE()) GROUP BY i.ItemCode;]]>
+	</queryString>
+	<field name="ItemCode" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ItemCode"/>
+		<property name="com.jaspersoft.studio.field.label" value="ItemCode"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="item"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Description" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Description"/>
+		<property name="com.jaspersoft.studio.field.label" value="Description"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="item"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Qty" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="Qty"/>
+		<property name="com.jaspersoft.studio.field.label" value="Qty"/>
+	</field>
+	<field name="Total" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="Total"/>
+		<property name="com.jaspersoft.studio.field.label" value="Total"/>
+	</field>
+	<field name="orderDate" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="orderDate"/>
+		<property name="com.jaspersoft.studio.field.label" value="orderDate"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="order"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="Total1" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{Total}]]></variableExpression>
+	</variable>
+	<variable name="Revenue" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{Total}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="30" uuid="6d5fff75-5c71-449d-89e8-600d2d652f74"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto Black" size="20" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Annually Income Report]]></text>
+			</staticText>
+			<textField pattern="yyyy">
+				<reportElement x="86" y="40" width="100" height="30" uuid="94c5eccc-9898-43e7-8850-62748e4b32f3"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{orderDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="40" width="80" height="30" uuid="8ce2d5db-6501-4809-90e7-65e41618c286"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Report Date :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="40" width="80" height="30" uuid="155076a9-20db-4d3d-890e-4b77873379be"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Issue Date :]]></text>
+			</staticText>
+			<textField pattern="MM/ dd/ yyyy">
+				<reportElement x="475" y="40" width="74" height="30" uuid="f0c6092a-ac13-4462-8188-6f1d984afec7"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="141" height="30" uuid="97ee943f-0988-473a-8b28-91695523d455">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7741c958-4589-414f-9815-f9e3b4e2c230"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto Medium" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ItemCode]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="141" y="0" width="138" height="30" uuid="9618f844-84c2-4e12-bddf-9595c630d690">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c740ae19-280a-49db-8168-7d47237848b4"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto Medium" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="0" width="138" height="30" uuid="922d715e-828d-4cf8-80ab-04bb9448004e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7f45c85d-4de4-41fe-892d-a8d3650f385f"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto Medium" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qty]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="417" y="0" width="138" height="30" uuid="61eaf20f-3f73-40f5-a825-2bc53f0222f9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fb69488d-a8f2-4777-8473-102fd99b5f2c"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto Medium" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="141" height="30" uuid="0872321a-dc78-443a-8c0f-37a79ecdc34a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7741c958-4589-414f-9815-f9e3b4e2c230"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="10" bottomPadding="0">
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto Medium"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ItemCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="141" y="0" width="138" height="30" uuid="4908db9e-262d-4b39-b205-f1e483d921b1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c740ae19-280a-49db-8168-7d47237848b4"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="10" bottomPadding="0" rightPadding="6">
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto Medium"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="279" y="0" width="138" height="30" uuid="90421da2-c56c-4781-80b3-bd007a22a38c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7f45c85d-4de4-41fe-892d-a8d3650f385f"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto Medium"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="417" y="0" width="138" height="30" uuid="8f9e8a75-d9c0-4c24-831e-3e9060e11092">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fb69488d-a8f2-4777-8473-102fd99b5f2c"/>
+				</reportElement>
+				<box rightPadding="10">
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Roboto Medium"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="20" uuid="c4ea685f-8828-4160-9f99-f0649d6de0dc"/>
+				<box topPadding="2">
+					<topPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="8"/>
+				</textElement>
+				<text><![CDATA[© 2021 - 2021 Helitha Sri - All Rights Reserved.]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="30" splitType="Stretch">
+			<textField pattern="#,##0.00;(#,##0.00)">
+				<reportElement x="340" y="0" width="215" height="30" uuid="84461f47-a938-4875-92be-599b650a2f50"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="10">
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Roboto Medium" size="15" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{Revenue}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="340" height="30" uuid="ce2a5197-961f-4c57-8a29-883d263aeaf6"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Roboto Medium" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Annually Profit : ]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,99 @@
+.first-Pane{
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+}
+.half-pane{
+    -fx-background-color: #3498db;
+    -fx-background-radius: 15 15 0 0;
+}
+.pos-Lable{
+    -fx-font-size: 20px;
+    -fx-font-family: "Roboto Black";
+    -fx-text-fill: white;
+}
+.loging-btn{
+    -fx-background-color: #0097e6;
+    -fx-font-family: "Roboto Black";
+    -fx-font-size: 16;
+    -fx-text-fill: white;
+    -fx-background-radius:9px;
+}
+.jfx.hamburger StackPane{
+    -fx-background-color: white;
+}
+.btn-order{
+    -fx-font-family: "Roboto Black";
+    -fx-background-color:#2ecc71;
+    -fx-text-fill: white;
+    -fx-font-size: 25;
+}
+.btn-cancle-order{
+    -fx-font-family: "Roboto Black";
+    -fx-background-color:#e74c3c;
+    -fx-text-fill: white;
+    -fx-font-size: 25;
+}
+.btn-add-to-cart{
+    -fx-font-family: "Roboto Black";
+    -fx-background-color:#1abc9c;
+    -fx-text-fill: white;
+    -fx-font-size: 25;
+}
+.field-txt {
+    -fx-font-family: "Roboto Black";
+    -fx-font-size: 20px;
+}
+.date-field .date-picker-display-node{
+    -fx-font-family: "Roboto Black";
+    -fx-font-size: 20px;
+    -jfx-label-float:true;
+}
+.txt-lbl{
+    -fx-font-family: "Roboto Black";
+}
+.txt-lbl-size{
+    -fx-font-size: 30;
+}
+.side-btn{
+
+}
+.side-btn:focused{
+    -fx-background-color: #1abc9c;
+}
+/*.side-btn:hover{
+    -fx-background-color:#e74c3c;
+}*/
+.tBtn{
+    -fx-background-color: rgba(0, 0, 0, 0)
+}
+.tBtn:selected{
+    -fx-background-color: #1abc9c;
+}
+/*
+
+.tBtn:focused{
+    -fx-background-color:#e74c3c;
+}
+*/
+.lbl-Price{
+    -fx-font-size: 50;
+}
+.heder{
+    -fx-position-shape: fixed;
+}
+.pane{
+    -fx-border-color: black;
+    -fx-border-width: 1px 1px 1px 1px;
+    /*-fx-effect: dropshadow(three-pass-box, grey, 10, 0, 0, 15);*/
+}
+
+.chart .chart-title .text{
+    -fx-font-family: "Roboto Black";
+    -fx-underline: true;
+}
+.chart .chart-content .chart-pie-label{
+    -fx-font-family: "Roboto Medium";
+}
+.chart .chart-legend .chart-legend-item .text{
+    -fx-font-family: "Roboto Black";
+}

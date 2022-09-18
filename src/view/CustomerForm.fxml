@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="1020.0" prefWidth="1840.0" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerFormController">
+   <children>
+      <JFXTextField fx:id="txtCustomerId" editable="false" labelFloat="true" layoutX="53.0" layoutY="50.0" onKeyReleased="#validationKeyReleased" prefHeight="50.0" prefWidth="240.0" promptText="Customer ID" styleClass="field-txt" />
+      <JFXComboBox fx:id="cmbTitle" labelFloat="true" layoutX="357.0" layoutY="50.0" prefHeight="50.0" prefWidth="240.0" promptText="Title" styleClass="field-txt" />
+      <JFXTextField fx:id="txtName" labelFloat="true" layoutX="660.0" layoutY="50.0" onKeyReleased="#validationKeyReleased" prefHeight="50.0" prefWidth="240.0" promptText="Name" styleClass="field-txt" />
+      <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="962.0" layoutY="50.0" onKeyReleased="#validationKeyReleased" prefHeight="50.0" prefWidth="515.0" promptText="Address" styleClass="field-txt" />
+      <JFXTextField fx:id="txtCity" labelFloat="true" layoutX="1540.0" layoutY="50.0" onKeyReleased="#validationKeyReleased" prefHeight="50.0" prefWidth="240.0" promptText="City" styleClass="field-txt" />
+      <JFXTextField fx:id="txtProvince" labelFloat="true" layoutX="53.0" layoutY="170.0" onKeyReleased="#validationKeyReleased" prefHeight="50.0" prefWidth="240.0" promptText="Province" styleClass="field-txt" />
+      <JFXTextField fx:id="txtPostalCode" labelFloat="true" layoutX="357.0" layoutY="170.0" onKeyReleased="#validationKeyReleased" prefHeight="50.0" prefWidth="240.0" promptText="Postal Code" styleClass="field-txt" />
+      <JFXButton fx:id="btnAdd" layoutX="1552.0" layoutY="170.0" onMouseClicked="#btnAddAction" prefHeight="69.0" prefWidth="227.0" styleClass="btn-order" text="Add" />
+      <JFXButton fx:id="btnUpdate" layoutX="1300.0" layoutY="170.0" onMouseClicked="#btnUpdateAction" prefHeight="69.0" prefWidth="227.0" style="-fx-background-color: #3498db;" styleClass="btn-add-to-cart" text="Update" />
+      <TableView fx:id="tblCustomer" layoutX="20.0" layoutY="262.0" onKeyReleased="#custTableKeyReleased" onMouseClicked="#tableMouseClick" prefHeight="730.0" prefWidth="1796.0" styleClass="field-txt">
+        <columns>
+          <TableColumn fx:id="colCusId" prefWidth="187.3333740234375" text="Customer ID" />
+          <TableColumn fx:id="colTitle" minWidth="0.3333282470703125" prefWidth="127.0" text="Title" />
+            <TableColumn fx:id="colName" minWidth="0.3333282470703125" prefWidth="348.33331298828125" text="Name" />
+            <TableColumn fx:id="colAddress" minWidth="0.3333282470703125" prefWidth="483.6666259765625" text="Address" />
+            <TableColumn fx:id="colCity" minWidth="0.3333282470703125" prefWidth="217.666748046875" text="City" />
+            <TableColumn fx:id="colProvince" minWidth="0.3333282470703125" prefWidth="235.333251953125" text="Province" />
+            <TableColumn fx:id="colPostalCode" minWidth="0.3333282470703125" prefWidth="197.6666259765625" text="Postal Code" />
+        </columns>
+      </TableView>
+      <JFXTextField fx:id="txtSearch" labelFloat="true" layoutX="660.0" layoutY="170.0" onKeyReleased="#searchKeyReleased" prefHeight="50.0" prefWidth="327.0" promptText="Search" styleClass="field-txt">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="btnClear" layoutX="1046.0" layoutY="170.0" onMouseClicked="#btnClearAction" prefHeight="69.0" prefWidth="227.0" styleClass="btn-cancle-order" text="Clear Field" />
+      <FontAwesomeIconView fill="#4059a9" glyphName="SEARCH" layoutX="955.0" layoutY="199.0" mouseTransparent="true" size="25" />
+      <Separator layoutX="598.0" layoutY="114.0" orientation="VERTICAL" prefHeight="110.0" prefWidth="63.0" />
+   </children>
+</AnchorPane>
